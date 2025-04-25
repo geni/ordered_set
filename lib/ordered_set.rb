@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'deep_clonable'
 require 'forwardable'
 
@@ -16,7 +15,7 @@ class OrderedSet
 
   def_delegators :@order, :each, :join, :[], :first, :last, :slice, :size, :length, :empty?
   alias limit slice
-  
+
   def replace(items)
     clear
     items.each do |item|
@@ -24,7 +23,7 @@ class OrderedSet
     end
     self
   end
-  
+
   def clear
     @order.clear
     @position.clear
@@ -33,7 +32,7 @@ class OrderedSet
   def include?(item)
     @position.has_key?(item)
   end
-    
+
   def <<(item)
     return if include?(item)
     @position[item] = @order.size
@@ -59,7 +58,7 @@ class OrderedSet
     reindex if need_reindex
     self
   end
-  
+
   def unshift(item)
     unshift!([item])
   end
@@ -93,20 +92,20 @@ class OrderedSet
     return self if items.empty?
     reverse!.reorder!(items).reverse!
   end
-  
+
   def to_ary
     @order.dup
   end
-  
+
   def index(item)
     @position[item]
   end
-  
+
   def delete(item)
     @order.delete(item) do
       return block_given? ? yield : nil
     end
-    reindex 
+    reindex
     item
   end
 
@@ -123,12 +122,12 @@ class OrderedSet
       end
     }
   end
-  
+
   def select!
     reject! {|item| not yield(item)}
   end
 
-  # Array#slice! is somewhat inconsistent with the other bang methods, 
+  # Array#slice! is somewhat inconsistent with the other bang methods,
   # and this emulates that. For the more consistent behavior use limit!
   def slice!(*args)
     removed_slice = @order.slice!(*args)
@@ -151,11 +150,11 @@ private
       @position[item] = index
     end
   end
-  
+
 end
 
 module Enumerable
   def to_ordered_set
-    self.kind_of?(OrderedSet) ? self : OrderedSet.new(self)
+    self.is_a?(OrderedSet) ? self : OrderedSet.new(self)
   end
 end

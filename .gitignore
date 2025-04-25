@@ -1,3 +1,7 @@
-/pkg/
 *~
+.bundle
+notes.txt
 Gemfile.lock
+notes.txt
+/pkg/
+vendor

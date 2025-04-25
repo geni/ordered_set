@@ -1,11 +1,17 @@
-= OrderedSet
+# OrderedSet
 
 OrderSet is an class for storing sets of objects. Unlike a Set, it maintains the order of
 the objects, but unlike an Array, each object can only exist once, and checking for
 inclusion takes constant time.
 
-== Usage:
+## Usage
 
+```ruby
+  # Gemfile
+  gem 'ordered_set'
+```
+
+```ruby
   s = [1,3,2,3,4,3].to_ordered_set
   s.to_a
   # => [1,3,2,4]
@@ -24,12 +30,14 @@ inclusion takes constant time.
   s.delete(1)
   s.to_a
   # => [3,2,4,5]
+```
 
-== Install:
+## Testing
 
-  sudo gem install ninjudd-deep_clonable -s http://gems.github.com
-  sudo gem install ninjudd-ordered_set -s http://gems.github.com
+```sh
+  bundle exec rake test
+```
 
-== License:
+## License
 
-Copyright (c) 2008 Justin Balthrop, Geni.com; Published under The MIT License, see LICENSE
+Copyright (c) 2025 Justin Balthrop, Geni.com; Published under The MIT License, see LICENSE
