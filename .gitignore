@@ -1,3 +1,7 @@
-/pkg/
 *~
+.bash_history
+.bundle
+coverage/
 Gemfile.lock
+.gitignore
+vendor/

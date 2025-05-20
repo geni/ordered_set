@@ -11,10 +11,6 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/ninjudd/ordered_set"
   gem.license       = 'MIT'
 
-  gem.add_development_dependency 'shoulda', '3.0.1'
-  gem.add_development_dependency 'mocha'
-  gem.add_development_dependency 'rake'
-
   gem.add_dependency 'deep_clonable', '>= 1.1.0'
 
   gem.files         = `git ls-files`.split($/)
