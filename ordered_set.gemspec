@@ -11,11 +11,7 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/geni/ordered_set'
   gem.license       = 'MIT'
 
-  gem.add_development_dependency 'rake'
-  gem.add_development_dependency 'shoulda'
-  gem.add_development_dependency 'test-unit'
-
-  gem.add_dependency 'deep_clonable'
+  gem.add_dependency 'deep_clonable', '>= 1.1.0'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
